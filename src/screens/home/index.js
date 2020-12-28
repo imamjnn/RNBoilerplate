@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { MButton } from '../../components'
+import { MButton } from 'components'
 
 const HomeScreen = ({navigation}) => {
   return (

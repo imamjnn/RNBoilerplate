@@ -1,6 +1,6 @@
-import { MButton, MText } from 'components'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { MButton, MText } from 'components'
 
 const AboutScreen = ({navigation}) => {
   return (

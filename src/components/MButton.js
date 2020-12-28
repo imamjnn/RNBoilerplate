@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import MText from './MText'
 
 const MButton = ({
   title='Simple',
@@ -12,7 +13,7 @@ const MButton = ({
       activeOpacity={0.8}
       style={[styles.btn, {backgroundColor: bgColor}]}
     >
-      <Text>{title}</Text>
+      <MText>{title}</MText>
     </TouchableOpacity>
   )
 }

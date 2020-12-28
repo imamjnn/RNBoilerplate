@@ -1,5 +1,5 @@
 export const fonts = {
-  medium: 'sans-serif-medium',
-  normal: 'sans-serif',
-  bold: 'serif'
+  medium: 'Montserrat-Medium',
+  normal: 'Montserrat-Regular',
+  bold: 'Montserrat-Bold'
 }
