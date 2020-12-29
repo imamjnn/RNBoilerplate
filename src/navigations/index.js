@@ -15,7 +15,10 @@ const RootNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerTitleStyle: {fontFamily: fonts.bold}
+          headerTitleStyle: {fontFamily: fonts.medium},
+          headerStyle: {height: 52, backgroundColor: 'white'},
+          headerBackTitleStyle: {fontFamily: fonts.medium},
+          headerPressColorAndroid: 'rgba(0, 0, 0, 0.20)',
         }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
