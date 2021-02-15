@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android-release": "cd android && ./gradlew assembleRelease",
+    "android-release-bundle": "cd android && ./gradlew bundleRelease",
+    "android-clean": "cd android && ./gradlew clean",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
@@ -18,7 +21,8 @@
     "react-native-gesture-handler": "^1.9.0",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
-    "react-native-screens": "^2.16.1"
+    "react-native-screens": "^2.16.1",
+    "react-native-vector-icons": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
