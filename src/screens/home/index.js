@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, Switch, View } from 'react-native'
-import { MButton } from 'components'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { MButton, MText } from 'components'
 import { connect } from 'react-redux'
 import { setTheme } from 'store/actions'
 import { colors } from 'styles'
@@ -26,12 +25,14 @@ const HomeScreen = ({navigation, theme, setTheme}) => {
   return (
     <View style={[styles.container, {backgroundColor: theme.background}]}>
       <View style={{width: 120}}>
-        <Icon name='home' size={30} />
-        <MButton title='About' onPress={() => navigation.navigate('About')} />
-        <Switch
-          onValueChange={() => onChangeTheme()}
-          value={isDarkMode}
-        />
+        <MButton title='Example' onPress={() => navigation.navigate('Example')} />
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <MText textStyle={{color: theme.text}}>Dark Mode</MText>
+          <Switch
+            onValueChange={() => onChangeTheme()}
+            value={isDarkMode}
+          />
+        </View>
       </View>
     </View>
   )

@@ -8,6 +8,7 @@ import HomeScreen from 'screens/home'
 import AboutScreen from 'screens/about'
 import { fonts } from 'styles'
 import { connect } from 'react-redux'
+import ExampleScreen from 'screens/example'
 
 const Stack = createStackNavigator();
 
@@ -20,11 +21,14 @@ const RootNavigation = ({theme}) => {
           headerStyle: {height: 52, backgroundColor: theme.foreground},
           headerBackTitleStyle: {fontFamily: fonts.medium},
           headerPressColorAndroid: 'rgba(0, 0, 0, 0.20)',
-          headerTintColor: theme.text
+          headerTintColor: theme.text,
+          animationEnabled: false
         }}
+        headerMode='float'
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="Example" component={ExampleScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
