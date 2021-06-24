@@ -13,6 +13,7 @@ const MTextInputSelectFilter = ({
 }) => {
 
   const [itemSelected, setItemSelected] = useState(null)
+  const [filterText, setFilterText] = useState('')
 
   const modalizeRef = useRef(null)
 
@@ -40,31 +41,29 @@ const MTextInputSelectFilter = ({
         <Modalize 
           ref={modalizeRef} 
           snapPoint={400}
-          adjustToContentHeight={true}
+          adjustToContentHeight={false}
           HeaderComponent={
-            <View style={{height: 30, justifyContent: 'center', alignItems: 'center'}}>
-              <MText medium>{placeholder}</MText>
-            </View>
-          }
-        >
-          <View style={{height: 400}}>
-            <View style={{padding: 10}}>
+            <View style={{padding: 10, justifyContent: 'center', alignItems: 'center'}}>
+              <MText medium textStyle={{paddingBottom: 10, fontSize: 16}}>{placeholder}</MText>
               <MTextInput
                 placeholder='Search'
                 iconRight='text-box-search-outline'
+                onChangeText={txt => setFilterText(txt)}
               />
             </View>
-            <FlatList
-              keyExtractor={(item, index) => index.toString()}
-              data={[...data]}
-              contentContainerStyle={{flexGrow: 1}}
-              renderItem={({item}) => (
-                <TouchableOpacity onPress={() => onSelectItem(item)} style={{padding: 10}}>
-                  <MText>{item.name}</MText>
-                </TouchableOpacity>
-              )}
-            />
-          </View>
+          }
+          flatListProps={{
+            keyExtractor: (item, index) => index.toString(),
+            data: data.filter(a => a.name.toLowerCase().includes(filterText.toLowerCase())),
+            contentContainerStyle: {flexGrow: 1},
+            renderItem: ({item}) => (
+              <TouchableOpacity onPress={() => onSelectItem(item)} style={{padding: 10}}>
+                <MText>{item.name}</MText>
+              </TouchableOpacity>
+            )
+          }}
+          modalHeight={400}
+        >
         </Modalize>
       </Portal>
     </>
