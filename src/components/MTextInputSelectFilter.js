@@ -9,6 +9,8 @@ import MTextInput from './MTextInput'
 
 const MTextInputSelectFilter = ({
   placeholder='Select Items',
+  txtColor='black',
+  bgColor='white',
   data=[{id: 1, name: 'Item 1'}, {id: 2, name: 'Item 2'}]
 }) => {
 
@@ -31,7 +33,7 @@ const MTextInputSelectFilter = ({
     <>
       <Pressable onPress={() => onOpen()} style={styles.txtInput}>
         <View style={{width: '90%'}}>
-          <MText textStyle={{paddingLeft: 8, color: itemSelected ? 'black' : 'grey'}}>{itemSelected ? itemSelected.name : placeholder}</MText>
+          <MText textStyle={{paddingLeft: 8, color: itemSelected ? txtColor : 'grey'}}>{itemSelected ? itemSelected.name : placeholder}</MText>
         </View>
         <View style={{width: '10%', alignItems: 'center', justifyContent: 'center'}}>
           <Icon name='chevron-down' size={26} color='grey' />
@@ -42,13 +44,15 @@ const MTextInputSelectFilter = ({
           ref={modalizeRef} 
           snapPoint={400}
           adjustToContentHeight={false}
+          modalStyle={{backgroundColor: bgColor}}
           HeaderComponent={
             <View style={{padding: 10, justifyContent: 'center', alignItems: 'center'}}>
-              <MText medium textStyle={{paddingBottom: 10, fontSize: 16}}>{placeholder}</MText>
+              <MText medium textStyle={{paddingBottom: 10, fontSize: 16, color: txtColor}}>{placeholder}</MText>
               <MTextInput
                 placeholder='Search'
                 iconRight='text-box-search-outline'
                 onChangeText={txt => setFilterText(txt)}
+                txtColor={txtColor}
               />
             </View>
           }
@@ -58,7 +62,7 @@ const MTextInputSelectFilter = ({
             contentContainerStyle: {flexGrow: 1},
             renderItem: ({item}) => (
               <TouchableOpacity onPress={() => onSelectItem(item)} style={{padding: 10}}>
-                <MText>{item.name}</MText>
+                <MText textStyle={{color: txtColor}}>{item.name}</MText>
               </TouchableOpacity>
             )
           }}

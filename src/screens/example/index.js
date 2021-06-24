@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { MText, MButton, MTextInput, MTextInputSelectFilter } from 'components'
+import { MText, MButton, MTextInput, MTextInputSelectFilter, MTextInputDate } from 'components'
 
 const ExampleScreen = ({navigation, theme}) => {
   return (
@@ -18,8 +18,8 @@ const ExampleScreen = ({navigation, theme}) => {
       {/* Button */}
       <MButton
         title='Button'
-        bgColor='white'
-        titleColor='black'
+        bgColor={theme.background}
+        titleColor={theme.text}
         rounded
         roundedColor='red'
       />
@@ -28,13 +28,22 @@ const ExampleScreen = ({navigation, theme}) => {
       <View style={{paddingTop: 10}}>
         <MTextInput
           placeholder='Name'
+          txtColor={theme.text}
         />
       </View>
 
       {/* Text Input */}
       <View style={{paddingTop: 10}}>
         <MTextInputSelectFilter
-          
+          txtColor={theme.text}
+          bgColor={theme.foreground}
+        />
+      </View>
+
+      {/* Text Input */}
+      <View style={{paddingTop: 10}}>
+        <MTextInputDate
+          txtColor={theme.text}
         />
       </View>
     </View>

@@ -7,6 +7,7 @@ const MTextInput = ({
   placeholder='Text input ..',
   iconRight='account',
   iconColor='grey',
+  txtColor='black',
   ...props
 }) => {
   return (
@@ -15,7 +16,7 @@ const MTextInput = ({
         <TextInput
           {...props}
           placeholder={placeholder}
-          style={{width: '100%', height: 40, fontFamily: fonts.normal, paddingRight: 8, paddingLeft: 8}}
+          style={{width: '100%', height: 40, color: txtColor, fontFamily: fonts.normal, paddingRight: 8, paddingLeft: 8}}
           placeholderTextColor='grey'
         />
       </View>
