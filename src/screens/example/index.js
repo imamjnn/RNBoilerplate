@@ -37,6 +37,7 @@ const ExampleScreen = ({navigation, theme}) => {
         <MTextInputSelectFilter
           txtColor={theme.text}
           bgColor={theme.foreground}
+          onChangeItem={item => console.log('item', item)}
         />
       </View>
 
@@ -44,6 +45,8 @@ const ExampleScreen = ({navigation, theme}) => {
       <View style={{paddingTop: 10}}>
         <MTextInputDate
           txtColor={theme.text}
+          bgColor={theme.foreground}
+          onChangeDate={date => console.log('date', date)}
         />
       </View>
     </View>

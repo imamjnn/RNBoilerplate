@@ -11,6 +11,7 @@ const MTextInputSelectFilter = ({
   placeholder='Select Items',
   txtColor='black',
   bgColor='white',
+  onChangeItem,
   data=[{id: 1, name: 'Item 1'}, {id: 2, name: 'Item 2'}]
 }) => {
 
@@ -24,8 +25,8 @@ const MTextInputSelectFilter = ({
   }
 
   const onSelectItem = (item) => {
-    console.log(item)
     setItemSelected(item)
+    onChangeItem(item)
     modalizeRef.current?.close()
   }
 
@@ -47,7 +48,7 @@ const MTextInputSelectFilter = ({
           modalStyle={{backgroundColor: bgColor}}
           HeaderComponent={
             <View style={{padding: 10, justifyContent: 'center', alignItems: 'center'}}>
-              <MText medium textStyle={{paddingBottom: 10, fontSize: 16, color: txtColor}}>{placeholder}</MText>
+              <MText medium textStyle={{paddingBottom: 10, fontSize: 16, color: 'grey'}}>{placeholder}</MText>
               <MTextInput
                 placeholder='Search'
                 iconRight='text-box-search-outline'
@@ -61,9 +62,9 @@ const MTextInputSelectFilter = ({
             data: data.filter(a => a.name.toLowerCase().includes(filterText.toLowerCase())),
             contentContainerStyle: {flexGrow: 1},
             renderItem: ({item}) => (
-              <TouchableOpacity onPress={() => onSelectItem(item)} style={{padding: 10}}>
+              <Pressable onPress={() => onSelectItem(item)} style={{padding: 10}}>
                 <MText textStyle={{color: txtColor}}>{item.name}</MText>
-              </TouchableOpacity>
+              </Pressable>
             )
           }}
           modalHeight={400}
